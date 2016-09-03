@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 商城
+Source Server         : web
 Source Server Version : 50540
 Source Host           : localhost:3306
 Source Database       : ace
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50540
 File Encoding         : 65001
 
-Date: 2016-09-02 23:04:38
+Date: 2016-09-03 09:15:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -65,7 +65,7 @@ CREATE TABLE `ace_action_log` (
   KEY `action_ip_ix` (`action_ip`),
   KEY `action_id_ix` (`action_id`),
   KEY `user_id_ix` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED COMMENT='行为日志表';
 
 -- ----------------------------
 -- Records of ace_action_log
@@ -92,6 +92,17 @@ INSERT INTO `ace_action_log` VALUES ('19', '1', '1', '2130706433', 'member', '1'
 INSERT INTO `ace_action_log` VALUES ('20', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-16 16:34登录了后台', '1', '1458117242');
 INSERT INTO `ace_action_log` VALUES ('21', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-16 17:08登录了后台', '1', '1458119280');
 INSERT INTO `ace_action_log` VALUES ('22', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-16 17:34登录了后台', '1', '1458120890');
+INSERT INTO `ace_action_log` VALUES ('23', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 10:28登录了后台', '1', '1458181726');
+INSERT INTO `ace_action_log` VALUES ('24', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 10:42登录了后台', '1', '1458182566');
+INSERT INTO `ace_action_log` VALUES ('25', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 10:46登录了后台', '1', '1458182764');
+INSERT INTO `ace_action_log` VALUES ('26', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 10:46登录了后台', '1', '1458182817');
+INSERT INTO `ace_action_log` VALUES ('27', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 11:03登录了后台', '1', '1458183803');
+INSERT INTO `ace_action_log` VALUES ('28', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 11:04登录了后台', '1', '1458183851');
+INSERT INTO `ace_action_log` VALUES ('29', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 11:11登录了后台', '1', '1458184274');
+INSERT INTO `ace_action_log` VALUES ('30', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 11:25登录了后台', '1', '1458185145');
+INSERT INTO `ace_action_log` VALUES ('31', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 11:35登录了后台', '1', '1458185720');
+INSERT INTO `ace_action_log` VALUES ('32', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-17 12:55登录了后台', '1', '1458190558');
+INSERT INTO `ace_action_log` VALUES ('33', '1', '1', '2130706433', 'member', '1', 'Administrator在2016-03-23 14:07登录了后台', '1', '1458713278');
 
 -- ----------------------------
 -- Table structure for ace_addons
@@ -788,7 +799,7 @@ CREATE TABLE `ace_member` (
 -- ----------------------------
 -- Records of ace_member
 -- ----------------------------
-INSERT INTO `ace_member` VALUES ('1', 'Administrator', '0', '0000-00-00', '', '20', '23', '0', '1457507178', '2130706433', '1458120890', '1');
+INSERT INTO `ace_member` VALUES ('1', 'Administrator', '0', '0000-00-00', '', '30', '34', '0', '1457507178', '2130706433', '1458713278', '1');
 
 -- ----------------------------
 -- Table structure for ace_menu
@@ -1043,7 +1054,7 @@ CREATE TABLE `ace_ucenter_member` (
 -- ----------------------------
 -- Records of ace_ucenter_member
 -- ----------------------------
-INSERT INTO `ace_ucenter_member` VALUES ('1', 'Administrator', 'e3f95defae27acb29e94e0e381cabe2d', '2423859713@qq.com', '', '1457507178', '2130706433', '1458120890', '2130706433', '1457507178', '1');
+INSERT INTO `ace_ucenter_member` VALUES ('1', 'Administrator', 'e3f95defae27acb29e94e0e381cabe2d', '2423859713@qq.com', '', '1457507178', '2130706433', '1458713278', '2130706433', '1457507178', '1');
 
 -- ----------------------------
 -- Table structure for ace_ucenter_setting

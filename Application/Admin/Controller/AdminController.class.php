@@ -21,13 +21,13 @@ class AdminController extends Controller {
      */
     protected function _initialize(){
         // 获取当前用户ID
-        if(defined('UID')) return ;
+       /* if(defined('UID')) return ;
         define('UID',is_login());
         if( !UID ){// 还没登录 跳转到登录页面
             $this->redirect('Public/login');
         }
         /* 读取数据库中的配置 */
-        $config =   S('DB_CONFIG_DATA');
+       /* $config =   S('DB_CONFIG_DATA');
         if(!$config){
             $config =   api('Config/lists');
             S('DB_CONFIG_DATA',$config);
@@ -60,7 +60,7 @@ class AdminController extends Controller {
                     }
                 }
             }
-        }        
+        }   */     
 
         $this->assign('__MENU__', $this->getMenus());
     }
