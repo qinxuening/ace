@@ -3,6 +3,7 @@ namespace Admin\Controller;
 use Admin\Controller\AdminController;
 class ElementsController extends AdminController{
 	public function _initialize(){
+		parent::_initialize();
 		$this->assign('element_active','active open');
 	}
 	

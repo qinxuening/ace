@@ -2,6 +2,7 @@
 namespace Admin\Controller;
 class FormController extends AdminController{
 	public function _initialize(){
+		parent::_initialize();
 		$this->assign('form_active','active open');
 	}
 	

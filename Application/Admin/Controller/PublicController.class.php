@@ -23,9 +23,9 @@ class PublicController extends \Think\Controller {
     public function login($username = null, $password = null, $verify = null){
         if(IS_POST){
             /* 检测验证码 TODO: */
-            if(!check_verify($verify)){
+           /* if(!check_verify($verify)){
                 $this->error('验证码输入错误！');
-            }
+            }*/
 
             /* 调用UC登录接口登录 */
             $User = new UserApi;
@@ -70,7 +70,8 @@ class PublicController extends \Think\Controller {
         if(is_login()){
             D('Member')->logout();
             session('[destroy]');
-            $this->success('退出成功！', U('login'));
+            //$this->success('退出成功！', U('login'));
+            $this->display('Public/login');
         } else {
             $this->redirect('login');
         }
