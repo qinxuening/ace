@@ -14,7 +14,10 @@ namespace Admin\Controller;
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 class CategoryController extends AdminController {
-
+	public function _initialize(){
+		parent::_initialize();
+		$this->assign('table_active','active open');
+	}
     /**
      * 分类管理列表
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
@@ -22,6 +25,7 @@ class CategoryController extends AdminController {
     public function index(){
         $tree = D('Category')->getTree(0,'id,name,title,sort,pid,allow_publish,status');
         $this->assign('tree', $tree);
+        $this->assign('table_index','active');
         C('_SYS_GET_CATEGORY_TREE_', true); //标记系统获取分类树模板
         $this->meta_title = '分类管理';
         $this->display();
