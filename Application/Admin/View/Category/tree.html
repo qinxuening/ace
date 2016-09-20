@@ -6,12 +6,18 @@
 				<span class="lbl"></span>
 			</label>
 		</td>
+<<<<<<< HEAD
 		<td><input name="sort[{$list.id}]" type="text" size="3" value="{$list.sort}" class="input"></td>
 		<td><a href="#">{$list.id}</a></td>
 		<td class="title">
 				{$list.html}{$list.space}{$list.title}
 			</div>
 		</td>
+=======
+
+		<td><a href="#">{$list.id}</a></td>
+		<td class="title">{$list.title}</td>
+>>>>>>> 68d08c9edc2219b559efedaf81691f1ecf4036e3
 		<td class="hidden-480">{$list['allow_publish']?'是':'否'}</td>
 		<td>添加下级栏目</td>
 		<td class="hidden-480">
@@ -22,8 +28,15 @@
 				<button class="btn btn-xs btn-info">
 					<i class="icon-edit bigger-120"></i>
 				</button>
+<<<<<<< HEAD
 			<span id="data_{$list.id}" dataName="{$list.title}" style="display:none;"></span>	
 			<a title="删除" href="javascript:Jq_del({$list.id},this)" class="confirm ajax-get btn btn-xs btn-danger js-ajax-delete"><i class="icon-trash bigger-120"></i></a>
+=======
+
+				<button class="btn btn-xs btn-danger">
+					<i class="icon-trash bigger-120"></i>
+				</button>
+>>>>>>> 68d08c9edc2219b559efedaf81691f1ecf4036e3
 			</div>
 	    </td>
 		<tr/>

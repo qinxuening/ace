@@ -78,10 +78,15 @@ class CategoryModel extends Model{
         /* 获取所有分类 */
         $map  = array('status' => array('gt', -1));
         $list = $this->field($field)->where($map)->order('sort')->select();
+<<<<<<< HEAD
         //$list = list_to_tree($list, $pk = 'id', $pid = 'pid', $child = 'child', $root = $id);
 		$list = Category::unlimitedForLevel($list , '&nbsp;&nbsp;&nbsp' , 0 , 0 , 'pid');
 		//$list = Category::unlimiteForLayer($list , 'child' , 0 , 'pid');
 		//print_r($list);
+=======
+        $list = list_to_tree($list, $pk = 'id', $pid = 'pid', $child = 'child', $root = $id);
+
+>>>>>>> 68d08c9edc2219b559efedaf81691f1ecf4036e3
         /* 获取返回数据 */
         if(isset($info)){ //指定分类则返回当前分类极其子分类
             $info['_'] = $list;

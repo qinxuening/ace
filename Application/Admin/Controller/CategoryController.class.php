@@ -14,10 +14,15 @@ namespace Admin\Controller;
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 class CategoryController extends AdminController {
+<<<<<<< HEAD
 	protected  $Category;
 	public function _initialize(){
 		parent::_initialize();
 		$this->Category =  D('Category');
+=======
+	public function _initialize(){
+		parent::_initialize();
+>>>>>>> 68d08c9edc2219b559efedaf81691f1ecf4036e3
 		$this->assign('table_active','active open');
 	}
     /**
