@@ -463,4 +463,21 @@ class AdminController extends Controller {
         }
         return $list;
     }
+    
+    /**
+     *  排序 排序字段为listorders数组 POST 排序字段为：listorder
+     */
+    protected function _listorders($model) {
+    	if (!is_object($model)) {
+    		return false;
+    	}
+    	$pk = $model->getPk(); //获取主键名称
+    	$ids = $_POST['sort'];
+    	foreach ($ids as $key => $r) {
+    		$data['sort'] = $r;
+    		$model->where(array($pk => $key))->save($data);
+    	}
+    	return true;
+    }
+    
 }

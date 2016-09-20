@@ -132,23 +132,23 @@
 						<li class="{$table_active}">
 							<a href="#" class="dropdown-toggle">
 								<i class="icon-list"></i>
-								<span class="menu-text"> 表格 </span>
+								<span class="menu-text">栏目管理 </span>
 
 								<b class="arrow icon-angle-down"></b>
 							</a>
 
 							<ul class="submenu">
 								<li class="{$table_index}">
-									<a href="{:U('Tables/index')}">
+									<a href="{:U('Category/index')}">
 										<i class="icon-double-angle-right"></i>
-										简单 &amp; 动态
+										栏目管理
 									</a>
 								</li>
 
-								<li class="{$jqgrip_active}">
-									<a href="{:U('Jqgrip/index')}">
+								<li class="{$category_add}">
+									<a href="{:U('Category/add_display')}">
 										<i class="icon-double-angle-right"></i>
-										jqGrid plugin
+										添加栏目
 									</a>
 								</li>
 							</ul>
@@ -229,3 +229,29 @@
 						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
 					</script>
 				</div>
+				<div class="main-content">
+					<div class="breadcrumbs" id="breadcrumbs">
+						<script type="text/javascript">
+							try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+						</script>
+
+						<ul class="breadcrumb">
+							<li>
+								<i class="icon-home home-icon"></i>
+								<a href="javascript:void(0);">当前位置</a>
+							</li>
+
+							<li>
+								<a href="{:U('index')}">{$meta_title}</a>
+							</li>
+						</ul><!-- .breadcrumb -->
+
+						<div class="nav-search" id="nav-search">
+							<form class="form-search">
+								<span class="input-icon">
+									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
+									<i class="icon-search nav-search-icon"></i>
+								</span>
+							</form>
+						</div><!-- #nav-search -->
+					</div>

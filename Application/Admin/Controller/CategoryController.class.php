@@ -14,7 +14,12 @@ namespace Admin\Controller;
  * @author 麦当苗儿 <zuojiazi@vip.qq.com>
  */
 class CategoryController extends AdminController {
-
+	protected  $Category;
+	public function _initialize(){
+		parent::_initialize();
+		$this->Category =  D('Category');
+		$this->assign('table_active','active open');
+	}
     /**
      * 分类管理列表
      * @author 麦当苗儿 <zuojiazi@vip.qq.com>
@@ -22,6 +27,7 @@ class CategoryController extends AdminController {
     public function index(){
         $tree = D('Category')->getTree(0,'id,name,title,sort,pid,allow_publish,status');
         $this->assign('tree', $tree);
+        $this->assign('table_index','active');
         C('_SYS_GET_CATEGORY_TREE_', true); //标记系统获取分类树模板
         $this->meta_title = '分类管理';
         $this->display();
@@ -69,6 +75,13 @@ class CategoryController extends AdminController {
         }
     }
 
+    public function add_display(){
+    	
+    	$this->assign('category_add','active');
+    	$this->meta_title = '添加栏目';
+    	$this->display();
+    }
+    
     /* 新增分类 */
     public function add($pid = 0){
         $Category = D('Category');
@@ -91,8 +104,7 @@ class CategoryController extends AdminController {
             }
 
             /* 获取分类信息 */
-            $this->assign('info',       null);
-            $this->assign('category', $cate);
+            $this->assign('info',null);
             $this->meta_title = '新增分类';
             $this->display('edit');
         }
@@ -108,24 +120,31 @@ class CategoryController extends AdminController {
             $this->error('参数错误!');
         }
 
-        //判断该分类下有没有子分类，有则不允许删除
+        //判断该分类下有没有子分类
         $child = M('Category')->where(array('pid'=>$cate_id))->field('id')->select();
         if(!empty($child)){
-            $this->error('请先删除该分类下的子分类');
+        	foreach ($child as $k => $v){
+        		$arr[] = $v['id'];
+        	}
+        	$where = implode(',', $arr);
+        	M('Category')->where(array('id' => array('in' , $where)))->delete();
         }
 
         //判断该分类下有没有内容
         $document_list = M('Document')->where(array('category_id'=>$cate_id))->field('id')->select();
         if(!empty($document_list)){
-            $this->error('请先删除该分类下的文章（包含回收站）');
+        	foreach ($document_list as $k => $v){
+        		$arrdo[] = $v['id'];
+        	}
+        	$where = implode(',', $arrdo);
+        	M('Document')->where(array('id' => array('in' , $where)))->delete();
         }
-
         //删除该分类信息
         $res = M('Category')->delete($cate_id);
         if($res !== false){
             //记录行为
             action_log('update_category', 'category', $cate_id, UID);
-            $this->success('删除分类成功！');
+            $this->success('删除分类成功');
         }else{
             $this->error('删除分类失败！');
         }
@@ -223,6 +242,17 @@ class CategoryController extends AdminController {
         }else{
             $this->error('合并分类失败！');
         }
-
+    }
+    
+    /**
+     * 排序
+     */
+    public function listorders() {
+    	$status = parent::_listorders($this->Category);
+    	if ($status) {
+    		$this->success("排序更新成功！");
+    	} else {
+    		$this->error("排序更新失败！");
+    	}
     }
 }

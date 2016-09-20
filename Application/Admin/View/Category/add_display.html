@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!---head-->
+		<include file="Public/head"/>
+		<!---head-->
+	</head>
+
+	<body>
+		
+		<!---nav-->
+		<include file="Public/nav"/>
+		<!---nav-->
+
+		<div class="main-container" id="main-container">
+			<script type="text/javascript">
+				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+			</script>
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<!---sidebar-->
+					<include file="Public/sidebar"/>
+				<!---sidebar-->
+
+					<div class="page-content">
+						<div class="page-header">
+
+						</div><!-- /.page-header -->
+
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+							<ul class="nav nav-tabs">
+						        <li class="active"><a href="#A" data-toggle="tab">基本设置</a></li>
+						        <li><a href="#C" data-toggle="tab">高级设置</a></li>
+						    </ul>
+							<form class="form-horizontal js-ajax-form" action="{:U('Category/add')}" method="post" role="form">
+								<div class="tabbable">
+							        <div class="tab-content">
+							          <div class="tab-pane active" id="A">
+											<fieldset>
+												<div class="control-group">
+													<label class="control-label">上级栏目</label>
+													<div class="controls">
+														<select name="parent">
+															<option value="0">作为顶级栏目</option>
+															{$terms_tree}
+														</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">栏目名称</label>
+													<div class="controls">
+														<input type="text" name="name" value="" class="col-xs-10 col-sm-5"><span class="form-required">*</span>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">栏目简介</label>
+													<div class="controls">
+														<textarea name="description" rows="5" cols="57"></textarea>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">{:L('CATEGORY_TYPE')}</label>
+													<div class="controls">
+														<select name="taxonomy">
+															<foreach name="taxonomys" item="vo">
+													        	<option value="{$key}">{$vo}</option>
+															</foreach>
+														</select>
+													</div>
+												</div>
+											</fieldset>
+							          </div>
+							          <div class="tab-pane" id="C">
+											<fieldset>
+												<div class="control-group">
+													<label class="control-label">{:L('LIST_TEMPLATE')}</label>
+													<div class="controls">
+														<php>
+															$list_tpls=$tpl_list;
+															unset($list_tpls['list']);
+														</php>
+									              		<select  name="list_tpl">
+									              			<option value="list">list{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+									              			<foreach name="list_tpls" item="vo">
+									              				<option value="{$vo}">{$vo}{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+									              			</foreach>
+									              		</select>
+													</div>
+												</div>
+												<div class="control-group">
+													<label class="control-label">{:L('ARTICLE_TEMPLATE')}</label>
+													<div class="controls">
+														<php>
+															$article_tpls=$tpl_list;
+															unset($article_tpls['article']);
+														</php>
+									              		<select  name="one_tpl">
+									              			<option value="article">article{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+									              			<foreach name="article_tpls" item="vo">
+									              				<option value="{$vo}">{$vo}{:C("TMPL_TEMPLATE_SUFFIX")}</option>
+									              			</foreach>
+									              		</select>
+													</div>
+												</div>
+											</fieldset>
+							          </div>
+							        </div>
+							    </div>
+							    <div class="form-actions">
+							     	<button class="btn btn-primary js-ajax-submit"type="submit">{:L('ADD')}</button>
+							      	<a class="btn" href="{:U('AdminTerm/index')}">{:L('BACK')}</a>
+							    </div>
+							</form>
+
+								<!-- PAGE CONTENT ENDS -->
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+					</div><!-- /.page-content -->
+				</div><!-- /.main-content -->
+
+				<!-- /#ace-settings-container -->
+				<include file="Public/setting"/>
+				<!-- /#ace-settings-container -->
+				
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!---footer-->
+		<include file="Public/footer"/>
+		<!---footer-->
+
+		<!-- page specific plugin scripts -->
+		<!-- ace scripts -->
+
+		<script src="__ASSETS_JS__/ace-elements.min.js"></script>
+		<script src="__ASSETS_JS__/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+
+		</script>
+</body>
+</html>
